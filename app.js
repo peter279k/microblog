@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 
-app.listen(3000);
+app.listen(5000);
 console.log('something happening');
 
 // catch 404 and forward to error handler
@@ -60,7 +60,7 @@ console.log("environment: " + app.get('env'));
 if (app.get('env') === 'development') {
 	app.use(function(err, req, res, next) {
 		var user;
-		if(req.session.user != undefined) {
+		if(req.session) {
 			user = true;
 		}
 		else {
@@ -80,7 +80,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
 	var user;
-	if(req.session.user != undefined) {
+	if(req.session) {
 		user = true;
 	}
 	else {
