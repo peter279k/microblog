@@ -7,7 +7,7 @@ The Express.js is a  skeleton application and using MySQL to store data. (微網
   npm install
   ```
   
-## step2: create the db.js in /path/to/microblog/models/db/js
+## step2: create the db.js in /path/to/microblog/models/db.js
   
   ```
   var mysql = require('mysql');
