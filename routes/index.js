@@ -108,13 +108,13 @@ router.post('/post', function(req, res) {
 					return res.redirect('/');
 				}
 			})
-			.catch((error) => {
+			.catch(function(error) {
 				req.flash('errorMessage', '系統出錯');
 				console.log(JSON.stringify(error));
 				return res.redirect('/');
 			});
 		})
-		.catch((error) => {
+		.catch(function(error) {
 			req.flash('errorMessage', '系統出錯');
 			console.log(JSON.stringify(error));
 			return res.redirect('/');
@@ -193,7 +193,7 @@ router.post('/reg', function(req, res) {
 						return res.redirect('/reg');
 					}
 				})
-				.catch((err) => {
+				.catch(function(err) {
 					req.flash('errorMessage', JSON.stringify(err));
 					return res.redirect('/reg');
 				});
@@ -203,12 +203,12 @@ router.post('/reg', function(req, res) {
 				return res.redirect('/reg');
 			}
 		})
-		.catch((err) => {
+		.catch(function(err) {
 			req.flash('errorMessage', JSON.stringify(err));
 			return res.redirect('/reg');
 		});
 	})
-	.catch((err) => {
+	.catch(function(err) {
 		req.flash('errorMessage', err);
 		return res.redirect('/reg');
 	});
@@ -275,13 +275,13 @@ router.post('/login', function(req, res) {
 				return res.redirect('/');
 			}
 		})
-		.catch((error) => {
+		.catch(function(error) {
 			req.flash('errorMessage', '系統出錯');
 			console.log(JSON.stringify(error));
 			return res.redirect('/login');
 		});
 	})
-	.catch((error) => {
+	.catch(function(error) {
 		req.flash('errorMessage', '系統出錯');
 		console.log(JSON.stringify(error));
 		return res.redirect('/login');
@@ -320,13 +320,13 @@ function getPost(ejsName, regMsg, res) {
 			regMsg["posts"] = result;
 			res.render(ejsName, regMsg);
 		})
-		.catch((error) => {
+		.catch(function(error) {
 			regMsg["errorMessage"] = '系統出錯';
 			console.log(JSON.stringify(error));
 			res.render(ejsName, regMsg);
 		});
 	})
-	.catch((error) => {
+	.catch(function(error) {
 		regMsg["errorMessage"] = '系統出錯';
 		console.log(JSON.stringify(error));
 		res.render(ejsName, regMsg);
