@@ -1,0 +1,25 @@
+<form class="form-horizontal" method="post">
+	<fieldset>
+		<legend>使用者登入</legend>
+		<div class="control-group">
+			<label class="control-label" for="username">使用者帳號</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="username" name="username">
+				<p class="help-block">請輸入您的帳號</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password">使用者密碼</label>
+			<div class="controls">
+				<input type="password" class="input-xlarge" id="password" name="password">
+				<p class="help-block">請輸入您的密碼</p>
+			</div>
+		</div>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">登入</button>
+		</div>
+		<%- alertDiv %>
+			<p><%= errorMessage %></p>
+		<%- alertDivEnd %>
+	</fieldset>
+</form>

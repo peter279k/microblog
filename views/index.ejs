@@ -1,0 +1,52 @@
+<div class="hero-unit">
+	<h1>歡迎來到微網誌</h1>
+	<p>微網誌是一個以 Node.js 為基礎的系統</p>
+	<p>
+		<a class="btn btn-primary btn-large" href="/login">登入</a>
+		<a class="btn btn-large" href="/reg">立即註冊</a>
+	</p>
+</div>
+
+<%- warnDiv %>
+	<h3><%= resultMessage %></h3>
+<%- warnDivEnd %>
+
+<div class="row">
+	<div class="span4">
+		<h2>peter 說</h2>
+		<p>lee</p>
+	</div>
+	<div class="span4">
+		<h2>大蘇 說</h2>
+		<p>大蘇電腦</p>
+	</div>
+	<div class="span4">
+		<h2>bigsu 說</h2>
+		<p>bigsu compouter</p>
+	</div>
+</div>
+
+<% if(posts) { %>
+<% var count = posts.length; %>
+<% if(count % 3 == 0) { %>
+	<% var rows = count / 3;%>
+<% } else { %>
+	<% var rows = Math.ceil(count / 3); %>
+<% } %>
+<% var index = 0; %>
+<% for(var i=0;i<rows;i++) { %>
+<div class="row">
+	<% for(var count=0;count<3;count++) { %>
+		<% if(posts[index+count] == undefined) { %>
+			<% break; %>
+		<% } %>
+		<div class="span4">
+		<h2><%= posts[index+count].account %> 說</h2>
+		<p><%= posts[index+count].message %></p>
+		<p><%= posts[index+count].post_date %></p>
+		</div>
+	<% } %>
+	</div>
+	<% index += 3; %>
+<% } %>
+<% } %>

@@ -1,0 +1,54 @@
+<%- warnDiv %>
+	<h3><%= resultMessage %></h3>
+<%- warnDivEnd %>
+<%- alertDiv %>
+	<h3><%= errorMessage %></h3>
+<%- alertDivEnd %>
+
+<form method="post" action="/post" class="well form-inline center" style="text-align: center;">
+	<input type="text" class="span8" name="message" id="message">
+	<button type="submit" class="btn btn-success">
+		<i class="icon-comment icon-white"></i>發言
+	</button>
+	(限 50 字以內)
+</form>
+
+<div class="row">
+	<div class="span4">
+		<h2>peter 說</h2>
+		<p>lee</p>
+	</div>
+	<div class="span4">
+		<h2>大蘇 說</h2>
+		<p>大蘇電腦</p>
+	</div>
+	<div class="span4">
+		<h2>bigsu 說</h2>
+		<p>bigsu compouter</p>
+	</div>
+</div>
+
+<% if(posts) { %>
+<% var count = posts.length; %>
+<% if(count % 3 == 0) { %>
+	<% var rows = count / 3;%>
+<% } else { %>
+	<% var rows = Math.ceil(count / 3); %>
+<% } %>
+<% var index = 0; %>
+<% for(var i=0;i<rows;i++) { %>
+<div class="row">
+	<% for(var count=0;count<3;count++) { %>
+		<% if(posts[index+count] == undefined) { %>
+			<% break; %>
+		<% } %>
+		<div class="span4">
+		<h2><%= posts[index+count].account %> 說</h2>
+		<p><%= posts[index+count].message %></p>
+		<p><%= posts[index+count].post_date %></p>
+		</div>
+	<% } %>
+	</div>
+	<% index += 3; %>
+<% } %>
+<% } %>
