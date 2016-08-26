@@ -16,6 +16,7 @@
 	"req-flash": "~0.0.3",
 	"express-session": "~1.0.6",
 	"express-logger": "~0.0.3",
-	"mysql": "~2.11.1"
+	"mysql": "~2.11.1",
+	"bower": "~1.7.9"
   }
 }

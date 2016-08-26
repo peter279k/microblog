@@ -1,0 +1,8 @@
+{
+	"name": "microblog",
+	"version": "1.0.0",
+	"dependencies": {
+		"bootstrap": "^2.3",
+		"jquery": "^1.9"
+	}
+}
