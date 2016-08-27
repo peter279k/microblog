@@ -1,7 +1,9 @@
 # microblog
 The Express.js is a  skeleton application and using MySQL to store data. (微網誌)
 # Usage
-## step 1: clone the repo and using command in root project folder
+# Node.js version
+## v4.5.0+
+## step 1: clone the repo and use the following command in root project folder
   
   ```
   npm install
