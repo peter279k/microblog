@@ -26,7 +26,7 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(flash());
-app.use(logger({path: './logger.log'}));
+//app.use(logger({path: './logger.log'}));
 //app.use(partials());
 
 // uncomment after placing your favicon in /public
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 
-app.listen(5000);
+//app.listen(3000);
 console.log('something happening');
 
 // catch 404 and forward to error handler

@@ -2,3 +2,4 @@ db.js
 node_modules
 bower_components
 logger.log
+sslLicense.js
