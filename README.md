@@ -94,3 +94,50 @@ CREATE TABLE IF NOT EXISTS `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
   ```
+  
+## step4: https
+  The website has  to use https to protect your website. In this step, we will teach you how to
+  
+  configure the https for Express.
+  
+  create the sslLicense.js in the project root path.
+  
+  ```
+  var options = {
+    key: fs.readFileSync('/path/to/your-key.key', 'utf8'),
+    
+    cert: fs.readFileSync('/path/to/your-crt.crt', 'utf8'),
+    
+    ca: fs.readFileSync('/pathc/to/your-ca.crt', 'utf8'
+  ),
+  
+    //requestCert: true,
+    rejectUnauthorized: true,
+
+    // This is the password used when generating the server's key
+    // that was used to create the server's certificate.
+    // And no, I do not use "password" as a password.
+    passphrase: "password"
+  };
+
+  //ssl object
+
+  var ssl = {};
+
+  ssl.options = options;
+
+  module.exports = ssl;
+  ```
+##step5: put the ssl certification files to the ssl folder.
+
+  you have to put the certfication key, csr and CA files.
+  
+##If you don't know how to generate the csr file and key file, plaes refer the following code:
+  
+  ```
+  openssl genrsa -des3 -out www.yourdomain-example.com.key 2048
+  openssl req -new -key www.yourdomain-example.com.key -out www.yourdomain-example.com.csr
+  //take the csr file to your https provider or use the https://www.sslforfree.com/ to get the free Let's encrypt certification.
+  ```
+  
+  
