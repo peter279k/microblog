@@ -16,6 +16,21 @@ var regMsg = {
 	'posts': null
 };
 
+/*force redirect to https*/
+function ensureSecure(req, res, next) {
+	if(req.secure) {
+		// OK, continue
+		return next();
+  	};
+	
+	// handle port numbers if you need non defaults
+ 	// res.redirect('https://' + req.host + req.url); // express 3.x
+	res.redirect('https://' + req.hostname + ":5000" + req.url); // express 4.x
+};
+
+router.all('*', ensureSecure); // at top of routing calls
+
+
 /* GET home page. */
 router.get('/', function(req, res) {
 	regMsg["user"] = false;
@@ -69,6 +84,7 @@ router.get('/u/:user', function(req, res) {
 
 /* POST post */
 router.post('/post', function(req, res) {
+
 	if(req.session.user == undefined) {
 		req.flash('errorMessage', '未登入！');
 		return res.redirect('/login');
