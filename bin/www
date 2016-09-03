@@ -16,8 +16,9 @@ var ssl = require('../sslLicense');
  */
 
 var port = normalizePort(process.env.PORT || '3000');
+var httpsPort = normalizePort(process.env.PORT || '5000');
 app.set('port', port);
-app.set('httpsport', '5000');
+app.set('httpsport', httpsPort);
 
 /**
  * Create HTTP server.
